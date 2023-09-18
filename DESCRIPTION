@@ -1,0 +1,33 @@
+Package: LineageDE
+Title: LineageDE: Differential Gene Expression Testing Along Lineages
+Version: 0.1.0
+Author: Apeksha Singh
+Maintainer: Apeksha Singh <apekshasingh@g.ucla.edu>
+Description: Gene expression dynamics resulting from pseudotime reconstruction are fit using a negative binomial generalized additive model (NB-GAM).
+    Using the NB-GAM, differential expression is determined between different conditions or lineages (see convertInput).
+    Implemented to accept multiple samples of psuedotime input for which labels are permuted to construct a null distribution.
+License: GPL (>= 2)
+Depends:
+  R (>= 4.1.0)
+Encoding: UTF-8
+LazyData: true
+LazyDataCompression: xz
+biocViews: SingleCell, Software
+Imports:
+  stats (>= 4.1.1),
+  slingshot (>= 2.3.1),
+  DelayedMatrixStats (>= 1.16.0),
+  mgcv (>= 1.8-42),
+  Matrix (>= 1.5-3),
+  R.utils (>= 2.12.2),
+  fitdistrplus (>= 1.1-8),
+  graphics (>= 4.1.1),
+  grDevices (>= 4.1.1),
+  ggplot2 (>= 3.4.1),
+  RColorBrewer (>= 1.1-3)
+Suggests:
+    BiocParallel (>= 1.28.3),
+    knitr,
+    rmarkdown
+RoxygenNote: 7.2.3
+VignetteBuilder: knitr

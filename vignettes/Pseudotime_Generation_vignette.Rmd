@@ -1,0 +1,59 @@
+---
+title: "Pseudotime_Generation_vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Pseudotime_Generation_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Example Generation of Pseudotime Results for LineageDE:
+
+```{r setup}
+library(LineageDE)
+```
+
+Here we utilize a modified version of samplePseudotime (samplePseudotime_HSPC) that generates results like those in ExampleInputData provided with LineageDE
+
+The function samplePseudotime can be similarly utilized to generate your own pseudotime data (and samples) utilizing Slingshot (Street et al. BMC Genomics 2018)
+
+samplePseudotime can be adapted for other pseudotime inference algorithms
+
+## Load in Data Inputs
+```{r}
+data("exPseudotimeInput")
+```
+This input Data contains HSPCs (hematopoietic stem and progenitor cells) from two conditions (WT & IkBKO) and two replicates (Rep1 & Rep2).  (Data subsampled from publication Singh et al.)
+
+Already provided are basic inputs for Slingshot:
+cellData = PCA (or other dim reduction) coordinates
+clusters (utilized by slingshot) that specifies to which cluster cells belong to
+(starting and ending clusters will be provided to slingshot)
+
+Note: to take advantage of parallelization along samples and if RhpcBLASctl installed,
+run the following command to avoid multithreaded operations:
+```{r}
+#RhpcBLASctl::blas_set_num_threads(1)
+```
+
+## Generate Pseudotime Results
+```{r}
+pseudoResults = samplePseudotime_HSPC(exPseudotimeInput$cellData, exPseudotimeInput$conditions, exPseudotimeInput$clusters, start.cluster="HSC", end.clusters=c("ErP", "MkP","MyP", "LyP"), experiments=exPseudotimeInput$experiments, nSamples=10, pseudo.cond = "WT")
+```
+
+Here we specified conditions (genotypes) and experiments (replicates).
+The starting cluster for slingshot is "HSC".
+The ending clusters are "ErP", "MkP","MyP", and "LyP".
+We specify pseudo.cond = "WT" so that only wildtype cells are utilized to generate the pseudotime trajectories (all cells in cellData will be projected onto these trajectories and used as input for LineageDE).
+nSamples should be increased (default 100) and calculations can be accelerated by setting parallel = TRUE, n_cores = # (utilizes BiocParallel)
+
+Returned are original and sampled pseudotime results than can be utilized by LineageDE.
+
+
