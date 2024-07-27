@@ -111,7 +111,7 @@ testGene<- function(gene, counts, ori.pseudotimes, ori.weights, conditions, expe
     # calculate p-val from parametric estimate of empirical null distribution
     # fit gamma distribution using MLE and fitdistrplus package
     # dist_null.LRT <-try(fitdistrplus::fitdist(null.LRT[!is.na(null.LRT)], "gamma"), silent=TRUE)
-    dist_null.LRT <-try(fitdistrplus::fitdist(null.LRT[(!is.na(null.LRT))&(null.LRT>0)], "gamma", lower=c(0, 0)), silent=TRUE)}
+    dist_null.LRT <-try(fitdistrplus::fitdist(null.LRT[(!is.na(null.LRT))&(null.LRT>0)], "gamma", lower=c(0, 0)), silent=TRUE)
     if (class(dist_null.LRT)=="try-error"){dist_null.LRT=NULL}
     shape = dist_null.LRT$estimate["shape"]
     rate = dist_null.LRT$estimate["rate"]
