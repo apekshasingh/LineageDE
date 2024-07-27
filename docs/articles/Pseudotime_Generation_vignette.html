@@ -76,9 +76,9 @@
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">LineageDE</span><span class="op">)</span></span></code></pre></div>
-<p>Here we utilize a modified version of samplePseudotime (samplePseudotime_HSPC) that generates results like those in ExampleInputData provided with LineageDE</p>
-<p>The function samplePseudotime can be similarly utilized to generate your own pseudotime data (and samples) utilizing Slingshot (Street et al. BMC Genomics 2018)</p>
-<p>samplePseudotime can be adapted for other pseudotime inference algorithms</p>
+<p>Here we utilize a modified version of samplePseudotime (samplePseudotime_HSPC) that generates results like those in ExampleInputData provided with LineageDE.</p>
+<p>The function samplePseudotime can be similarly utilized to generate your own pseudotime data (and samples) utilizing Slingshot (Street et al. BMC Genomics 2018).</p>
+<p>samplePseudotime can be adapted for other pseudotime inference algorithms.</p>
 </div>
 <div class="section level2">
 <h2 id="load-in-data-inputs">Load in Data Inputs<a class="anchor" aria-label="anchor" href="#load-in-data-inputs"></a>
@@ -86,7 +86,9 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"exPseudotimeInput"</span><span class="op">)</span></span></code></pre></div>
 <p>This input Data contains HSPCs (hematopoietic stem and progenitor cells) from two conditions (WT &amp; IkBKO) and two replicates (Rep1 &amp; Rep2). (Data subsampled from publication Singh et al.)</p>
-<p>Already provided are basic inputs for Slingshot: cellData = PCA (or other dim reduction) coordinates clusters (utilized by slingshot) that specifies to which cluster cells belong to (starting and ending clusters will be provided to slingshot)</p>
+<p>Already provided are basic inputs for Slingshot:</p>
+<p>cellData = PCA (or other dim reduction) coordinates</p>
+<p>clusters (utilized by slingshot) that specifies to which cluster cells belong to (starting and ending clusters will be provided to slingshot)</p>
 <p>Note: to take advantage of parallelization along samples and if RhpcBLASctl installed, run the following command to avoid multithreaded operations:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#RhpcBLASctl::blas_set_num_threads(1)</span></span></code></pre></div>

@@ -20,11 +20,11 @@ knitr::opts_chunk$set(
 library(LineageDE)
 ```
 
-Here we utilize a modified version of samplePseudotime (samplePseudotime_HSPC) that generates results like those in ExampleInputData provided with LineageDE
+Here we utilize a modified version of samplePseudotime (samplePseudotime_HSPC) that generates results like those in ExampleInputData provided with LineageDE.
 
-The function samplePseudotime can be similarly utilized to generate your own pseudotime data (and samples) utilizing Slingshot (Street et al. BMC Genomics 2018)
+The function samplePseudotime can be similarly utilized to generate your own pseudotime data (and samples) utilizing Slingshot (Street et al. BMC Genomics 2018).
 
-samplePseudotime can be adapted for other pseudotime inference algorithms
+samplePseudotime can be adapted for other pseudotime inference algorithms.
 
 ## Load in Data Inputs
 ```{r}
@@ -33,7 +33,9 @@ data("exPseudotimeInput")
 This input Data contains HSPCs (hematopoietic stem and progenitor cells) from two conditions (WT & IkBKO) and two replicates (Rep1 & Rep2).  (Data subsampled from publication Singh et al.)
 
 Already provided are basic inputs for Slingshot:
+
 cellData = PCA (or other dim reduction) coordinates
+
 clusters (utilized by slingshot) that specifies to which cluster cells belong to
 (starting and ending clusters will be provided to slingshot)
 

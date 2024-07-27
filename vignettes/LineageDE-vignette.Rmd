@@ -23,7 +23,7 @@ library(LineageDE)
 ## Load in Example Data
 
 This example data already contains the pseudotime results needed to run LineageDE.
-See Pseudotime_Generation_vignette for how this input is generated
+See Pseudotime_Generation_vignette for how this input is generated.
 The function samplePseudotime can be utilized to generate your own pseudotime results using Slingshot (Street et al. BMC Genomics 2018)
 ```{r}
 data("ExampleInputData")
