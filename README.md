@@ -24,6 +24,5 @@ install_github("apekshasingh/LineageDE")
 [Link](https://github.com/apekshasingh/LineageDE/)
 
 ### Publication:
-Population dynamics modeling reveals myeloid bias involves both HSC differentiation and progenitor proliferation biases (Singh A, Blood 2024)
+Population dynamics modeling reveals myeloid bias involves both HSC differentiation and progenitor proliferation biases (Singh A, Blood 2025). See supplemental information for more information.
 [Link](https://doi.org/10.1182/blood.2024025598)
-See supplemental information for more information.
